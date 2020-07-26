@@ -1,1 +1,50 @@
-<p>checks works!</p>
+<div class="contenedor">
+    <h2>Filtrar</h2>
+    <h3>Si ambos parametros son 'Ninguno' regresará el total de personas.</h3>
+    <div class="contenedor">
+      <form>
+        <div class="form-group">
+          <label for="result">Resultado</label>
+          <select class="form-control" id="result" name="result" [(ngModel)]="selectedResult">
+            <option value=Ninguno>Ninguno</option>
+            <option *ngFor="let result of results" [value]=result>{{ result }}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="country">País</label>
+          <select class="form-control" id="country" name="country" [(ngModel)]="selectedCountry">
+            <option value=Ninguno>Ninguno</option>
+            <option *ngFor="let country of countries" [value]=country>{{ country }}</option>
+          </select>
+        </div>
+        <button class="registro" (click)="getResultsByFilter()">Aplicar</button>
+      </form>
+    </div>
+    
+    <div>
+
+        <h2>{{ title }}</h2>
+        <button class="registro" [routerLink]="['/register']">Cargar Análisis</button>
+      
+        <div class="grilla">
+            <div class="row mb-3">
+                <div class="col-3 themed-grid-col">Nro.</div>
+                <div class="col-3 themed-grid-col">Nombre</div>
+                <div class="col-3 themed-grid-col">País</div>
+                <div class="col-3 themed-grid-col">Resultado</div>
+            </div>
+          
+            <div class="row mb-3" *ngFor="let person of persons">
+                <div class="col-sm-3 themed-grid-col"><a [routerLink]="['/person', person._id]">{{ person.position }}</a></div>
+                <div class="col-sm-3 themed-grid-col">{{ person.name }}</div>
+                <div class="col-sm-3 themed-grid-col">{{ person.country }}</div>
+                <div class="col-sm-3 themed-grid-col" [style.color]="person.resultColor">{{ person.result }}</div>
+            </div>
+
+            <div class="contenedor" *ngIf="!persons || persons.length == 0">
+                <h2>No se encontraron personas cargadas con esas características.</h2>
+            </div>
+        </div>
+      
+    </div>
+</div>

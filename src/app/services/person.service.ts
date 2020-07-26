@@ -20,4 +20,20 @@ export class PersonService {
 		return this._http.get(this.url + "covid/checks", {headers: headers});
     }
 
+    getResultsByFilter(country: string = '', result: string = ''): Observable<any> {
+		let headers = new HttpHeaders().set("Content-Type", "application/json");
+
+        let queryParams;
+
+        if (country === '') {
+            queryParams = `result=${ result }`;
+        } else if (result === '') {
+            queryParams = `country=${ country }`;
+        } else {
+            queryParams = `country=${ country }&result=${ result }`
+        }
+
+		return this._http.get(this.url + 'covid/checks/search?' + queryParams, {headers: headers});
+    }
+
 }
