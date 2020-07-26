@@ -20,6 +20,12 @@ export class PersonService {
 		return this._http.get(this.url + "covid/checks", {headers: headers});
     }
 
+    getStats(): Observable<any> {
+      let headers = new HttpHeaders().set("Content-Type", "application/json");
+  
+      return this._http.get(this.url + "covid/stats", {headers: headers});
+    }
+
     getResultsByFilter(country: string = '', result: string = ''): Observable<any> {
 		let headers = new HttpHeaders().set("Content-Type", "application/json");
 

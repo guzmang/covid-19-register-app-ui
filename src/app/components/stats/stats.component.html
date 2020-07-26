@@ -1,1 +1,16 @@
-<p>stats works!</p>
+<div class="contenedor">
+    <h2>{{ title }}</h2>
+    <div class="grilla">
+        <div class="row mb-3">
+            <div class="col-4 themed-grid-col">Sanos</div>
+            <div class="col-4 themed-grid-col">Infectados</div>
+            <div class="col-4 themed-grid-col">Inmunes</div>
+        </div>
+      
+        <div class="row mb-3">
+            <div class="col-sm-4 themed-grid-col">{{ stats.healthy }}</div>
+            <div class="col-sm-4 themed-grid-col">{{ stats.infected }}</div>
+            <div class="col-sm-4 themed-grid-col">{{ stats.immune }}</div>
+        </div>
+    </div>
+</div>

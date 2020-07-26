@@ -35,7 +35,7 @@
             </div>
           
             <div class="row mb-3" *ngFor="let person of persons">
-                <div class="col-sm-3 themed-grid-col"><a [routerLink]="['/person', person._id]">{{ person.position }}</a></div>
+                <div class="col-sm-3 themed-grid-col"><a [routerLink]="['/person', person._id]">{{ person.position + " (Ver detalles)" }}</a></div>
                 <div class="col-sm-3 themed-grid-col">{{ person.name }}</div>
                 <div class="col-sm-3 themed-grid-col">{{ person.country }}</div>
                 <div class="col-sm-3 themed-grid-col" [style.color]="person.resultColor">{{ person.result }}</div>
