@@ -1,1 +1,32 @@
-<p>detail works!</p>
+<div class="contenedor" *ngIf="person">
+    <h2>{{ title }}</h2>
+
+    <form>
+        <button name="Regresar" [routerLink]="['/']">Regresar</button>
+        <br><br>
+        <p>
+            <label for="id">ID</label>
+            <input type="text" name="id" #id="ngModel" [(ngModel)]="person._id" disabled>
+        </p>
+
+        <p>
+            <label for="name">Nombre</label>
+            <input type="text" name="name" #name="ngModel" [(ngModel)]="person.name" disabled>
+        </p>
+    
+        <p>
+            <label for="country">País</label>
+            <input type="text" name="country" #country="ngModel" [(ngModel)]="person.country" disabled>
+        </p>
+
+        <p>
+            <label for="result">Resultado</label>
+            <input type="text" name="result" #country="ngModel" [(ngModel)]="person.result" disabled>
+        </p>
+
+        <p>
+            <label for="dna">ADN</label>
+            <textarea name="dna" #dna="ngModel" [(ngModel)]="person.dna" disabled></textarea>
+        </p>
+    </form>
+</div>

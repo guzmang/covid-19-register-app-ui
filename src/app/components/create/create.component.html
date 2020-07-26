@@ -1,1 +1,50 @@
-<p>create works!</p>
+<div class="contenedor">
+    <h2>{{ title }}</h2>
+
+    <div class="message success" *ngIf="status == 'success'">
+		Se ha registrado a la persona exitosamente! Haga click <a [routerLink]="['/']">aquí</a> para regresar.
+	</div>
+
+	<div class="message failed" *ngIf="status == 'failed'">
+		No se ha podido registrar a la persona.
+    </div>
+    
+	<form #personForm="ngForm" (ngSubmit)="onSubmit(personForm)">
+		<p>
+			<label for="name">Nombre</label>
+			<input type="text" name="name" #name="ngModel" [(ngModel)]="person.name" required>
+			<br>
+			<span class="form_error" *ngIf="name.touched && !name.valid">
+				El nombre es obligatorio.
+			</span>
+		</p>
+
+        <p>
+			<label for="country">País</label>
+			<input type="text" name="country" #country="ngModel" [(ngModel)]="person.country" required>
+			<br>
+            <span class="form_error" *ngIf="country.touched && !country.valid">
+				El país es obligatorio.
+			</span>
+        </p>
+        
+        <p>
+			<label for="dna">ADN</label>
+			<textarea name="dna" #dna="ngModel" [(ngModel)]="person.dna" required></textarea>
+			<br>
+            <span class="form_error" *ngIf="dna.touched && !dna.valid">
+				El ADN es obligatorio.
+			</span>
+        </p>
+		
+		<div class="message failed" *ngIf="errorText">
+			<p>
+				{{ errorText }}
+			</p>
+		</div>
+
+        <input type="submit" name="Enviar" [disabled]="!personForm.form.valid">
+        <button name="Cancelar" [routerLink]="['/']">Cancelar</button>
+    </form>
+
+</div>

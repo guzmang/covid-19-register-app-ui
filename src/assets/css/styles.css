@@ -72,11 +72,6 @@ footer {
     text-decoration: none
 }
 
-.contenedor a {
-	color: white;
-	cursor: pointer;
-}
-
 .detalles {
 	color: black;
 	cursor: pointer;
@@ -111,12 +106,12 @@ form input[type="text"] {
 form textarea {
 	font-family: 'Courier New', Courier, monospace;
 	font-size: 35px;
-	height: 210px;
+	height: 195px;
 	line-height: 30px;
 	padding: 5px;
 	resize: none;
 	text-transform: uppercase;
-	width: 25%;
+	width: 140px;
 }
 
 form button,
@@ -181,9 +176,9 @@ form input[disabled] {
     border: 1px solid rgba(86, 61, 124, .2);
   }
   
-  .themed-container {
-    padding: 15px;
-    margin-bottom: 30px;
-    background-color: rgba(0, 123, 255, .15);
-    border: 1px solid rgba(0, 123, 255, .2);
-  }
+.themed-container {
+	padding: 15px;
+	margin-bottom: 30px;
+	background-color: rgba(0, 123, 255, .15);
+	border: 1px solid rgba(0, 123, 255, .2);
+}
